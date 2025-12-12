@@ -64,21 +64,21 @@ async function registerPrompt(args: {
     const embedOptions = {
       // Option 1: Full badge with prompt preview
       fullBadge: {
-        description: "Shows security badge + prompt preview + copy button. Best for dedicated prompt pages.",
+        description: "Shows security badge + prompt preview + secure copy button. Best for dedicated prompt pages.",
         html: `<div data-secure-prompt-id="${promptId}"></div>\n<script src="${scriptUrl}" async></script>`,
         react: `<>\n  <div data-secure-prompt-id="${promptId}" />\n  <Script src="${scriptUrl}" strategy="lazyOnload" />\n</>`
       },
       // Option 2: Compact link
       compactLink: {
-        description: "Simple 'Copy Verified Prompt' link. Best for inline use or cards.",
-        html: `<a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank" rel="noopener" class="secure-prompt-link">Copy Verified ${result.promptLabel || 'Prompt'}</a>`,
-        react: `<a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank" rel="noopener" className="secure-prompt-link">Copy Verified ${result.promptLabel || 'Prompt'}</a>`
+        description: "Simple 'Get Securely' link. Best for inline use or cards.",
+        html: `<a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank" rel="noopener" class="secure-prompt-link">Get ${result.promptLabel || 'Prompt'} Securely</a>`,
+        react: `<a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank" rel="noopener" className="secure-prompt-link">Get ${result.promptLabel || 'Prompt'} Securely</a>`
       },
       // Option 3: Icon button
       iconButton: {
         description: "Small shield icon button. Best for tight spaces.",
-        html: `<a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank" rel="noopener" title="Copy Verified Prompt" class="secure-prompt-icon">🔒</a>`,
-        react: `<a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank" rel="noopener" title="Copy Verified Prompt" className="secure-prompt-icon">🔒</a>`
+        html: `<a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank" rel="noopener" title="Get Prompt Securely" class="secure-prompt-icon">🔒</a>`,
+        react: `<a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank" rel="noopener" title="Get Prompt Securely" className="secure-prompt-icon">🔒</a>`
       },
       // Option 4: Verify only link
       verifyLink: {
@@ -98,15 +98,15 @@ async function registerPrompt(args: {
 
 ### Ask the user which display option they prefer:
 
-1. **Full Badge** - Shows security scan results, prompt preview, and copy button
+1. **Full Badge** - Shows security scan results, prompt preview, and "Get Prompt Securely" button
    - Best for: Dedicated prompt pages, documentation
    - Use when: User wants to show transparency about the prompt
 
-2. **Compact Link** - Simple "Copy Verified Prompt" text link
+2. **Compact Link** - Simple "Get [Prompt] Securely" text link
    - Best for: Cards, lists, inline mentions
    - Use when: Space is limited or badge feels heavy
 
-3. **Icon Button** - Just a lock icon that opens secure copy
+3. **Icon Button** - Just a lock icon that opens secure copy page
    - Best for: Tight layouts, mobile, minimal UI
    - Use when: User wants subtle indicator
 
@@ -124,13 +124,13 @@ async function registerPrompt(args: {
 \`\`\`jsx
 import Script from "next/script";
 
-// Full badge
+// Full badge (button says "Get Prompt Securely")
 <div data-secure-prompt-id="${promptId}" />
 <Script src="${scriptUrl}" strategy="lazyOnload" />
 
 // Or just a link
 <a href="https://www.hashbuilds.com/copy/${promptId}" target="_blank">
-  Copy Verified Prompt
+  Get Prompt Securely
 </a>
 \`\`\`
 `;
